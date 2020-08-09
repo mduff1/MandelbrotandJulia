@@ -38,11 +38,11 @@ float juliaCalc(vec2 coordinate, vec2 cCoord)
 
 void main()
 {
-    vec2 coord           = 2.0 * vec2((2.0 * gl_FragCoord.x - (resolution.x / 2.0)) / resolution.y - 1.78, (2.0 * gl_FragCoord.y - resolution.y) / resolution.y);
+    vec2 coord           = 2.0 * vec2((2.0 * gl_FragCoord.x - (resolution.x)) / resolution.y - 1.78, (2.0 * gl_FragCoord.y - resolution.y) / resolution.y);
     vec2 actualCursorPos = vec2(0.0, 0.0);
-    if(cursorPos.x < resolution.x / 2.0)
+    if(cursorPos.x < resolution.x)
     {
-        actualCursorPos = 2.0 * vec2(((2.0 * cursorPos.x - (resolution.x / 2.0)) / resolution.y - 0.25), ((2.0 * cursorPos.y - resolution.y) / resolution.y));
+        actualCursorPos = 2.0 * vec2(((2.0 * cursorPos.x - (resolution.x)) / resolution.y - 0.25), ((2.0 * cursorPos.y - resolution.y) / resolution.y));
     }else
     {
         actualCursorPos = vec2(0.0, 0.0);

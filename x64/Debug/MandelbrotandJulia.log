@@ -1,7 +1,7 @@
 ﻿  main.cpp
 C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\main.cpp(15,24): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
-C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\main.cpp(159,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\main.cpp(162,41): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\main.cpp(169,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\main.cpp(172,42): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\main.cpp(164,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\main.cpp(167,41): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\main.cpp(179,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\main.cpp(182,42): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
   MandelbrotandJulia.vcxproj -> C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\x64\Debug\MandelbrotandJulia.exe

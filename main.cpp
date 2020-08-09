@@ -16,6 +16,7 @@ unsigned int scr_width = (16.0 / 9.0) * scr_height;
 
 unsigned int max_iterations = 250;
 
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
@@ -36,16 +37,16 @@ void processInput(GLFWwindow* window)
 float vertices[] = {
 	// positions       
 	-1.0f, -1.0f, 0.0f, // bottom left
-	 0.0f,  1.0f, 0.0f, // top right
+	 1.0f,  1.0f, 0.0f, // top right
 	-1.0f,  1.0f, 0.0f, // top left
-	 0.0f, -1.0f, 0.0f  // bottom right
+	 1.0f, -1.0f, 0.0f  // bottom right
 };
 
 float vertices1[] = {
 	// positions       
-	 0.0f, -1.0f, 0.0f, // bottom left
+	-1.0f, -1.0f, 0.0f, // bottom left
 	 1.0f,  1.0f, 0.0f, // top right
-	 0.0f,  1.0f, 0.0f, // top left
+	-1.0f,  1.0f, 0.0f, // top left
 	 1.0f, -1.0f, 0.0f  // bottom right
 };
 
@@ -97,7 +98,6 @@ int main()
 		return -1;
 	}
 
-
 	Shader leftShader("C:/Programming/C++/OpenGL Projects/Mandelbrotandjulia/Mandelbrotandjulia/Shaders/leftVShader.txt", "C:/Programming/C++/OpenGL Projects/Mandelbrotandjulia/Mandelbrotandjulia/Shaders/leftFShader.txt");
 	Shader rightShader("C:/Programming/C++/OpenGL Projects/Mandelbrotandjulia/Mandelbrotandjulia/Shaders/rightVShader.txt", "C:/Programming/C++/OpenGL Projects/Mandelbrotandjulia/Mandelbrotandjulia/Shaders/rightFShader.txt");
 	unsigned int leftVAO, rightVAO;
@@ -143,31 +143,41 @@ int main()
 		processInput(window);
 		glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-		int sWidth, sHeight;
-		glfwGetFramebufferSize(window, &sWidth, &sHeight);
+		GLint sWidth, sHeight;
+		glfwGetWindowSize(window, &sWidth, &sHeight);
 		glm::vec2 resolution = glm::vec2(sWidth, sHeight);
 
 		double cXpos, cYpos;
 		glfwGetCursorPos(window, &cXpos, &cYpos);
 		glm::vec2 cursorPos = glm::vec2(cXpos, sHeight - cYpos);
+		
+		
 
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		GLint vp1[4];
+		glViewport(0, 0, sWidth / 2, sHeight);
+		glGetIntegerv(GL_VIEWPORT, vp1);
 
 		leftShader.use();
 		leftShader.setFloat("time", glfwGetTime());
-		leftShader.setVec2("resolution", resolution);
+		leftShader.setVec2("resolution", glm::vec2(vp1[2], vp1[3]));
 		leftShader.setVec2("cursorPos", cursorPos);
 		leftShader.setFloat("max_iterations", max_iterations);
 
+		
 		glBindVertexArray(leftVAO);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
+		
+		GLint vp2[4];
+		glViewport(sWidth / 2, 0, sWidth / 2, sHeight);
+		glGetIntegerv(GL_VIEWPORT, vp2);
 
 		rightShader.use();
 		rightShader.setFloat("time", glfwGetTime());
-		rightShader.setVec2("resolution", resolution);
+		rightShader.setVec2("resolution", glm::vec2(vp2[2], vp2[3]));
 		rightShader.setVec2("cursorPos", cursorPos);
 		rightShader.setFloat("max_iterations", max_iterations);
 

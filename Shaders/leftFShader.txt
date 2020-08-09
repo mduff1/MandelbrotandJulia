@@ -42,9 +42,8 @@ float mandelCalc(vec2 coordinate)
 
 void main()
 {
-    vec2 coord  = 2.0 * vec2((2.0 * gl_FragCoord.x - resolution.x / 2.0) / resolution.y - 0.25, (2.0 * gl_FragCoord.y - resolution.y) / resolution.y);
-    
-    
+    vec2 coord  = 2.0 * (2.0 * gl_FragCoord.xy - resolution.xy) / resolution.y;
+    coord.x -= 0.5;
     float mandelValue = mandelCalc(coord);
     
     vec3 color = vec3(cos(mandelValue * 20.0 + 3.0), cos(mandelValue * 35.0 + 2.8), cos(mandelValue * 40.0 + 4.0));
