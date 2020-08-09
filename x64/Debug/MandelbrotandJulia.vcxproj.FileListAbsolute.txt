@@ -1,0 +1,2 @@
+C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\x64\Debug\MandelbrotandJulia.exe
+C:\Programming\C++\OpenGL Projects\MandelbrotandJulia\MandelbrotandJulia\x64\Debug\MandelbrotandJulia.pdb
